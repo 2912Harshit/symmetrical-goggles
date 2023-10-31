@@ -1,0 +1,29 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int binaryToDecimal(long long binaryNumber) {
+    int decimalNumber = 0;
+    int base = 1;
+
+    while (binaryNumber > 0) {
+        int lastDigit = binaryNumber % 10;
+        binaryNumber = binaryNumber / 10;
+        decimalNumber += lastDigit * base;
+        base *= 2;
+    }
+    return decimalNumber;
+}
+
+int main() {
+    long long binaryInput;
+
+    cout << "Enter a binary number: ";
+    cin >> binaryInput;
+
+    int decimalResult = binaryToDecimal(binaryInput);
+
+    cout << "Decimal equivalent: " << decimalResult << endl;
+
+    return 0;
+}
